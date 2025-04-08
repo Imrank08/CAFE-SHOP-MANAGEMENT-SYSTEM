@@ -4,10 +4,10 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$employee_id = $_SESSION['employee_id'];
 
-if (!isset($admin_id)) {
-   header('location:admin_login.php');
+if (!isset($employee_id)) {
+   header('location:employee_login.php');
 };
 
 if (isset($_POST['update_payment'])) {
@@ -44,12 +44,11 @@ if (isset($_GET['delete'])) {
    <link rel="stylesheet" href="../css/dashboard_style.css">
    <link rel="stylesheet" href="../css/table.css">
 
-
 </head>
 
 <body>
 
-   <?php include '../components/admin_header.php' ?>
+   <?php include '../components/employee_header.php' ?>
 
    <!-- placed orders section starts  -->
 
@@ -126,6 +125,8 @@ if (isset($_GET['delete'])) {
 
 
    </section>
+
+   <!-- placed orders section ends -->
 
    <!-- placed orders section ends -->
 
