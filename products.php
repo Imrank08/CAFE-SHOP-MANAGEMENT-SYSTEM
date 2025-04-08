@@ -4,10 +4,10 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$employee_id = $_SESSION['employee_id'];
 
-if (!isset($admin_id)) {
-   header('location:admin_login.php');
+if (!isset($employee_id)) {
+   header('location:employee_login.php');
 };
 
 if (isset($_POST['add_product'])) {
@@ -18,6 +18,8 @@ if (isset($_POST['add_product'])) {
    $price = filter_var($price, FILTER_SANITIZE_STRING);
    $category = $_POST['category'];
    $category = filter_var($category, FILTER_SANITIZE_STRING);
+   $desc = $_POST['desc'];
+   $desc = filter_var($desc, FILTER_SANITIZE_STRING);
 
    $image = $_FILES['image']['name'];
    $image = filter_var($image, FILTER_SANITIZE_STRING);
@@ -80,7 +82,7 @@ if (isset($_GET['delete'])) {
 
 <body>
 
-   <?php include '../components/admin_header.php' ?>
+   <?php include '../components/employee_header.php' ?>
 
    <!-- add products section starts  -->
 
@@ -164,9 +166,8 @@ if (isset($_GET['delete'])) {
    </section>
 
    <!-- show products section ends -->
-
    <!-- custom js file link  -->
-   <script src="../js/admin_script.js"></script>
+   <script src="../js/employee_script.js"></script>
 
 </body>
 
